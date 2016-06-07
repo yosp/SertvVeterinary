@@ -6211,12 +6211,19 @@ body {
 .landing {
   margin: 30px auto; }
 
-.iphone {
+.banner {
   max-width: 100%; }
 
 .site-footer {
   text-transform: uppercase;
   font-size: 12px; }
+
+.search-button {
+  margin-top: 1.5em; }
+
+.row-button {
+  text-align: center;
+  color: green lighten-1; }
 
 .login-box,
 .signup-box {
@@ -6227,6 +6234,11 @@ body {
   text-align: center; }
 
 .platzigram {
+  font-family: 'Oleo Script';
+  font-size: 42px;
+  color: #125688 !important; }
+
+.veterinariaLogo {
   font-family: 'Oleo Script';
   font-size: 42px;
   color: #125688 !important; }

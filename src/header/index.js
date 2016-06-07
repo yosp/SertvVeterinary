@@ -2,12 +2,12 @@ var yo = require('yo-yo');
 var translate = require('../translate');
 var empty = require('empty-element');
 
-var el = yo`<nav class="header">
+var el = yo`<nav class="header grey lighten-2">
       <div class="nav-wrapper">
         <div class="container">
           <div class="row">
             <div class="col s12 m6 offset-m1">
-              <a href="/" class="brand-logo platzigram">Platzigram</a>
+              <a href="/" class="brand-logo veterinariaLogo">Veterinaria</a>
             </div>
             <div class="col s2 m6 push-s10 push-m10">
               <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">

@@ -6,9 +6,12 @@ var title = require('title');
 var header = require('../header');
 // var axios = require('axios');
 
-page('/', header, function (ctx, next) {
+page('/homepage', header, function (ctx, next) {
   title('Veterinaria');
+  debugger
   var main = document.getElementById('main-container');
 
-  // empty(main).appendChild(template(ctx.pictures));
+ 	
+  empty(main).appendChild(template("Hola Homepage"));
+  
 })

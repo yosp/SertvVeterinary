@@ -7,8 +7,10 @@ var translate = require('../translate').message;
 module.exports = function (pictures) {
   var el = yo`<div class="container timeline">
     <div class="row">
-	      This is Home
+	      ${pictures}
     </div> 
     
   </div>`;
+
+  return layout(el);
 }
