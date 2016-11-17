@@ -6,7 +6,7 @@ var signupForm = yo`<div class="col s12 m7">
   <div class="row">
     <div class="signup-box">
       <h1 class="veterinariaLogo">Veterinaria</h1>
-      <form class="signup-form">
+      <form class="signup-form" action="/signup" method="POST">
         <h2>${translate.message('signup.subheading')}</h2>
         <div class="divider"></div>
         <div class="section">

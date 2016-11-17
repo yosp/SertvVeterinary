@@ -6,7 +6,7 @@ var signinForm = yo`<div class="col s12 m7">
   <div class="row">
     <div class="signup-box">
       <h1 class="veterinariaLogo">Veterinaria</h1>
-      <form class="signup-form">
+      <form class="signup-form" action="/login" method="POST">
         <div class="divider"></div>
         <div class="section">
           <input type="text" name="username" placeholder="${translate.message('username')}" />
@@ -16,7 +16,11 @@ var signinForm = yo`<div class="col s12 m7">
       </form>
     </div>
   </div>
-
+  <div class="row">
+    <div class="login-box">
+      ${translate.message('signin.not-have-account')} <a href="/signup">${translate.message('signup.call-to-action')}</a>
+    </div>
+  </div>
 </div>`;
 
 module.exports = landing(signinForm);

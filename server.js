@@ -1,6 +1,17 @@
 var express = require('express');
 var multer  = require('multer');
 var ext = require('file-extension');
+var cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+var expressSession = require('express-session')
+var passport = require('passport')
+var sertvveterinary = require('sertvveterinary-client')
+var auth = require('./auth')
+
+var config = require('./config')
+var port = process.env.PORT || 5060
+
+var client = sertvveterinary.createClient(config.client)
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -15,9 +26,22 @@ var upload = multer({ storage: storage }).single('picture');
 
 var app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(cookieParser());
+app.use(expressSession({
+  secret: config.secret,
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.set('view engine', 'pug');
 
 app.use(express.static('public'));
+passport.use(auth.localStrategy);
+passport.deserializeUser(auth.deserializeUser);
+passport.serializeUser(auth.serializeUser);
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'Veterinaria' });
@@ -26,6 +50,29 @@ app.get('/', function (req, res) {
 app.get('/client', function (req, res) {
   res.render('index', { title: 'Veterinaria - Clientes' });
 })
+
+app.get('/signup', function (req, res) {
+  res.render('index', { title: 'Platzigram - Signup' });
+});
+
+app.post('/signup', function (req, res) {
+  var user = req.body;
+  client.saveUser(user, function (err, usr) {
+    if (err) return res.status(500).send(err.message)
+
+    res.redirect('/signin')
+  })
+})
+
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/signin',
+  failureRedirect: '/'
+}));
+
+app.get('/logout', function (req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 app.get('/signup', function (req, res) {
   res.render('index', { title: 'Veterinaria - Signup' });
@@ -44,8 +91,16 @@ app.post('/api/pictures', function (req, res) {
   })
 })
 
-app.listen(3000, function (err) {
+function ensureAuth (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.status(401).send({ error: 'not authenticated' })
+}
+
+app.listen(port, function (err) {
   if (err) return console.log('Hubo un error'), process.exit(1);
 
-  console.log('Veterinaria escuchando en el puerto 3000');
+  console.log(`Veterinaria escuchando en el puerto ${port}`);
 })
