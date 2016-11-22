@@ -43,7 +43,7 @@ passport.use(auth.localStrategy);
 passport.deserializeUser(auth.deserializeUser);
 passport.serializeUser(auth.serializeUser);
 
-app.get('/', function (req, res) {
+app.get('/', ensureAuth, function (req, res) {
   res.render('index', { title: 'Veterinaria' });
 })
 
@@ -52,7 +52,7 @@ app.get('/client', function (req, res) {
 })
 
 app.get('/signup', function (req, res) {
-  res.render('index', { title: 'Platzigram - Signup' });
+  res.render('index', { title: 'Veterinaria - Signup' });
 });
 
 app.post('/signup', function (req, res) {
@@ -60,18 +60,18 @@ app.post('/signup', function (req, res) {
   client.saveUser(user, function (err, usr) {
     if (err) return res.status(500).send(err.message)
 
-    res.redirect('/signin')
+    res.redirect('/')
   })
 })
 
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/signin',
-  failureRedirect: '/'
+  successRedirect: '/',
+  failureRedirect: '/signin'
 }));
 
 app.get('/logout', function (req, res){
   req.logout();
-  res.redirect('/');
+  res.redirect('/signin');
 });
 
 app.get('/signup', function (req, res) {
@@ -91,12 +91,21 @@ app.post('/api/pictures', function (req, res) {
   })
 })
 
+app.get('/whoami', function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.json(req.user)
+  }
+
+  res.json({ auth: false })
+})
+
 function ensureAuth (req, res, next) {
   if (req.isAuthenticated()) {
     return next()
   }
 
-  res.status(401).send({ error: 'not authenticated' })
+  //res.status(401).send({ error: 'not authenticated' })
+  res.redirect('/signin');
 }
 
 app.listen(port, function (err) {

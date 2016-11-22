@@ -5,10 +5,11 @@ var title = require('title');
 // var request = require('superagent');
 var header = require('../header');
 // var axios = require('axios');
+var utils = require('../utils')
 
-page('/homepage', header, function (ctx, next) {
+page('/', utils.loadAuth, header, function (ctx, next) {
   title('Veterinaria');
-  debugger
+
   var main = document.getElementById('main-container');
 
  	
