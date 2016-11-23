@@ -3,8 +3,9 @@ var empty = require('empty-element');
 var template = require('./template');
 var title = require('title');
 var header = require('../header');
+var utils = require('../utils')
 
-page('/client', header, function(ctx, next){
+page('/client', utils.loadAuth, header, function(ctx, next){
 	title('Veterinaria - Clientes');
 
 	var main = document.getElementById('main-container');
@@ -25,23 +26,3 @@ page('/client', header, function(ctx, next){
 
 	empty(main).appendChild(template(clients));
 });
-
-
-
-// var page = require('page');
-// var empty = require('empty-element');
-// var template = require('./template');
-// var title = require('title');
-// // var request = require('superagent');
-// var header = require('../header');
-// // var axios = require('axios');
-
-// page('/homepage', header, function (ctx, next) {
-//   title('Veterinaria');
-//   debugger
-//   var main = document.getElementById('main-container');
-
- 	
-//   empty(main).appendChild(template("Hola Homepage"));
-  
-// })

@@ -91,6 +91,10 @@ app.post('/api/pictures', function (req, res) {
   })
 })
 
+app.get('/client', function (req, res) {
+  res.render('index', { title: 'Veterianria - Client'})
+})
+
 app.get('/whoami', function (req, res) {
   if (req.isAuthenticated()) {
     return res.json(req.user)

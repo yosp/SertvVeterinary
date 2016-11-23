@@ -77,14 +77,12 @@ module.exports = function(clients){
 	</div>`
 }
 function addClient(){
-	debugger;
 	alert("Listo");
 }
 
-// function cancel() {
-//    	debugger;
-// 	alert("Listo");
-//   }
+function cancel() {
+	alert("Listo");
+  }
 	
 	el = render();
 

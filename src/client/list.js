@@ -16,7 +16,7 @@ module.exports = function(client){
 						<a class="waves-effect waves-teal btn-flat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 					</td>
 				</tr>`	
-
+	debugger;
 	return el;
 
 }
