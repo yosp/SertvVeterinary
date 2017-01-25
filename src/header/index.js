@@ -2,8 +2,7 @@ var yo = require('yo-yo');
 var empty = require('empty-element');
 
 var authCard = function (ctx) {
-  debugger
-  var authenticated = yo`
+    var authenticated = yo`
     <div class="col s2 offset-s9 m6 offset-m6 right-align">
       <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">
         <i class="fa fa-user" aria-hidden="true"></i>

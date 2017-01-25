@@ -29,7 +29,6 @@ exports.serializeUser = function (user, done) {
 }
 
 exports.deserializeUser = function (user, done) {
-  console.log(user)
   client.getUser(user.username, (err, usr) => {
     if (err) return done(err)
 

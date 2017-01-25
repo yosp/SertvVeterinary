@@ -18,13 +18,9 @@ module.exports = function(clients){
 				      <div class="card-content">
 				      	<form class="col s12 m10 offset-m1 offset-s1">
 					      	<div class="row">
-					      		<div class="input-field offset-m1 col s5 m4">
+					      		<div class="input-field offset-m1 col s10 m8">
 						          <input name="uFullname" id="findname" type="text" class="validate">
-						          <label for="findname">${translate('username')}</label>
-						        </div>
-						        <div class="input-field col s5 m4">
-						          <input name="uPhone" id="findphone" type="text" class="validate">
-						          <label for="findphone">${translate('username')}</label>
+						          <label for="findname">${translate('clientName')} / ${translate('phone')}</label>
 						        </div>
 						        <div class="col s2 m2 search-button">
 									<a class="waves-effect waves-light btn tooltipped" data-position="top" data-delay="50" data-tooltip="Buscar"><i class="fa fa-search"  aria-hidden="true"></i></a>
@@ -45,39 +41,79 @@ module.exports = function(clients){
 								return list(client);
 							})}
 						</table>
-
+						
+						<button class="btn-floating add btn-large waves-effect waves-light red" onclick=${addClient}><i class="fa fa-plus"></i></button>
 				      </div>
 				    </div>
-				    <button class="btn-floating add btn-large waves-effect waves-light red" onclick=${addClient}><i class="fa fa-plus"></i></button>
+				    
 				     
 				</div>
 			</section>
-			<section id="ClientFormAdd">
-				<div class="col s12 m10 offset-m1 l8 offset-l2 center-align">
-					<div class="card">
-				      <div class="card-content">
-				      	<form class="center-align">  
+			<section id="ClientFormAdd" class="hide">
+				<div class="col s12 m10 offset-m1 l8 offset-l2">
+				      	<form class="formCenter">  
 					      	<div class="row">
 					      		<div class="input-field col s12 m10 l8">
-						          <input name="uFullname" id="findname" type="text" class="validate">
-						          <label for="findname">${translate('username')}</label>
+						          <input name="Fullname" id="fullname" type="text" class="validate">
+						          <label for="fullname">${translate('fullname')}</label>
 						        </div>
+
 						        <div class="input-field col s12 m10 l8">
-						          <input name="uPhone" id="findphone" type="text" class="validate">
-						          <label for="findphone">${translate('username')}</label>
+								    <select id="gender">
+								      <option value="" disabled selected>${translate('selectText')}</option>
+								      <option value="m">${translate('man')}</option>
+								      <option value="w">${translate('woman')}</option>
+								    </select>
+								    <label>Genero</label>
+								 </div>
+
+						        <div class="input-field col s12 m10 l8">
+						          <input name="address" id="address" type="text" class="validate">
+						          <label for="address">${translate('address')}</label>
 						        </div>
+
+						         <div class="input-field col s12 m10 l8">
+						          <input name="Email" id="email" type="text" class="validate">
+						          <label for="email">${translate('email')}</label>
+						        </div>
+								
+								 <div class="input-field col s12 m10 l8">
+						          <input name="Phone" id="phone" type="text" class="validate">
+						          <label for="phone">${translate('phone')}</label>
+						        </div>
+
+						         <div class="input-field col s12 m10 l8">
+						          <input name="OtherPhone" id="ophone" type="text" class="validate">
+						          <label for="ophone">${translate('OtherPhone')}</label>
+						        </div>
+
+						        <div class="col s12 m10 l8 center-align">
+									<button type="submit" class="btn waves-effect waves-light">${translate("save")}</button>
+									<button type="reset" class="btn waves-effect waves-light">${translate("cancel")}</button>
+						        </div>
+
 						    </div>
 						</form>
-				      </div>
-				    </div>
 				</div>
 			</section>
 			
 		</div> 
 	</div>`
 }
+
+ function toogleButtonClient() {
+    var clientFormAdd = document.getElementById('ClientFormAdd')
+    var clientLists = document.getElementById('ClientLists')
+    
+    if (ClientLists) {
+      clientFormAdd.classList.toggle('hide')
+      clientLists.classList.toggle('hide')
+    }
+  }
+
+
 function addClient(){
-	alert("Listo");
+	toogleButtonClient()
 }
 
 function cancel() {

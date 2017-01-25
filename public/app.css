@@ -6524,6 +6524,9 @@ body {
 .card.liked .fa-heart-o {
   display: none; }
 
+.formCenter {
+  margin-left: 15%; }
+
 .add {
   float: right; }
 

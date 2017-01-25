@@ -19,5 +19,15 @@ module.exports = {
   'signin.not-have-account': '¿Don\'t have an account?',
   'language': 'Language',
   'upload-picture': 'Upload picture',
-  'upload': 'Upload'
+  'upload': 'Upload',
+  'selectText': 'Choose one',
+  'man': 'Man',
+  'woman': 'Woman',
+  'address': 'Address',
+  'email': 'Email',
+  'phone': 'Phone',
+  'OtherPhone': 'Other Phone',
+  'save': 'Save',
+  'cancel': 'Cancel',
+  'clientName': 'Client Name'
 }

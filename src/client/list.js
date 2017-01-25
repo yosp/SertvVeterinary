@@ -9,14 +9,14 @@ module.exports = function(client){
 					<td>${client.email}</td>
 					<td>${client.phone}</td>
 					<td>${client.phone2}</td>
-					<td class="row-button">
+					<td>
 						<a class="waves-effect waves-teal btn-flat"><i class="fa fa-search" aria-hidden="true"></i></a>
 					</td>
-					<td class="row-button">
+					<td>
 						<a class="waves-effect waves-teal btn-flat"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 					</td>
 				</tr>`	
-	debugger;
+	
 	return el;
 
 }

@@ -25,4 +25,5 @@ page('/client', utils.loadAuth, header, function(ctx, next){
 	];
 
 	empty(main).appendChild(template(clients));
+	$('select').material_select();
 });
