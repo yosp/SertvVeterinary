@@ -82,6 +82,47 @@ app.get('/signin', function (req, res) {
   res.render('index', { title: 'Veterinaria - Signin' });
 })
 
+
+
+app.get('/client', function (req, res) {
+  res.render('index', { title: 'Veterianria - Client'})
+})
+
+//API's Section
+
+//Client API's
+app.post('/api/client', function (req, res) {
+  var cl = req.body
+  if (cl.id != undefined) {
+    client.updateClient(cl, function (err, data){
+      if(err) {
+        return res.status(500).send(err.message)
+      }    
+      return res.status(201).send(data)
+    })
+  } else{
+    client.saveClient(cl, function (err, data) {
+      if (err) {
+        return res.status(500).send(err.message)
+      }
+
+      return res.status(201).send(data)
+    })  
+  }
+  
+})
+
+app.get('/api/client', function (req, res) {
+  client.getClientList(function (err, data) {
+    if (err) {
+      res.status(500).send(err.message)
+    }
+
+    res.send(data)
+  })
+} )
+
+
 app.post('/api/pictures', function (req, res) {
   upload(req, res, function (err) {
     if (err) {
@@ -91,9 +132,6 @@ app.post('/api/pictures', function (req, res) {
   })
 })
 
-app.get('/client', function (req, res) {
-  res.render('index', { title: 'Veterianria - Client'})
-})
 
 app.get('/whoami', function (req, res) {
   if (req.isAuthenticated()) {

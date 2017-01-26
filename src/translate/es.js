@@ -18,14 +18,21 @@ module.exports = {
   'upload-picture': 'Subir foto',
   'upload': 'Subir',
   'selectText': 'Seleccione uno',
+  'gender': 'Género',
   'man': 'Hombre',
   'woman': 'Mujer',
   'address': 'Dirección',
   'email': 'Email',
   'phone': 'Teléfono',
-  'OtherPhone': 'Otro teléfono',
+  'otherPhone': 'Otro teléfono',
   'save': 'Guardar',
   'cancel': 'Cancelar',
-  'clientName': 'Nombre del cliente'
+  'clientName': 'Nombre del cliente',
+  'name': 'Nombre',
+  'pet': 'Mascota',
+  'edit': 'Editar',
+  'race': 'Raza',
+  'color': 'Color',
+  'status': 'Estatus'
 
 }

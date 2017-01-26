@@ -141,6 +141,17 @@ $avatar-size: 48px;
   margin-left: 15%;
 }
 
+.clientInfo {
+  background: #C6FF00;
+  border-radius: 7px;
+  margin-bottom: 1em;
+  padding: .5em;
+}
+
+.clientInfo td {
+  color: white;
+}
+
 .add{
     float: right;
   }

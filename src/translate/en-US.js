@@ -21,13 +21,20 @@ module.exports = {
   'upload-picture': 'Upload picture',
   'upload': 'Upload',
   'selectText': 'Choose one',
+  'gender': 'Gender',
   'man': 'Man',
   'woman': 'Woman',
   'address': 'Address',
   'email': 'Email',
   'phone': 'Phone',
-  'OtherPhone': 'Other Phone',
+  'otherPhone': 'Other Phone',
   'save': 'Save',
   'cancel': 'Cancel',
-  'clientName': 'Client Name'
+  'clientName': 'Client Name',
+  'name': 'Name',
+  'pet': 'Pet',
+  'edit': 'Edit',
+  'race': 'Race',
+  'color': 'Color',
+  'status': 'Status'
 }
