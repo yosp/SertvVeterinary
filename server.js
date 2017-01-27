@@ -93,9 +93,10 @@ app.get('/client', function (req, res) {
 //Client API's
 app.post('/api/client', function (req, res) {
   var cl = req.body
-  if (cl.id != undefined) {
+  if (cl.id != undefined && cl.id != null) {
     client.updateClient(cl, function (err, data){
       if(err) {
+        console.log(err.message)
         return res.status(500).send(err.message)
       }    
       return res.status(201).send(data)
@@ -103,6 +104,7 @@ app.post('/api/client', function (req, res) {
   } else{
     client.saveClient(cl, function (err, data) {
       if (err) {
+        
         return res.status(500).send(err.message)
       }
 
@@ -121,6 +123,53 @@ app.get('/api/client', function (req, res) {
     res.send(data)
   })
 } )
+
+
+//Ethinicities Section
+
+app.get('/api/etni', function (req, res) {
+  client.getEthni(function (err, data) {
+    if (err) {
+      res.status(500).send(err.message)
+    }
+
+    res.send(data)
+  })
+})
+
+
+//Race Section
+
+app.get('/api/race', function (req, res) {
+  var et = req.query
+
+  client.getRaceByEthni(et.ethniId, function(err, data) {
+    if(err) res.status(500).send(err.message)
+      res.send(data)
+  })
+})
+
+
+// Pet Section
+
+app.post('/api/pet', function (req, res) {
+  var pet = req.body
+  client.savePet(pet, function(err, data) {
+    if (err) return res.status(500).send(err.message)
+
+    res.status(201).send(data)
+  })
+})
+
+app.get('/api/pet', function (req, res) {
+  var pet = req.query
+
+  client.getPetsByClient(pet.owner, function (err, data) {
+    if (err) return res.status(500).send(err.message)
+
+    res.status(200).send(data)
+  })
+})
 
 
 app.post('/api/pictures', function (req, res) {

@@ -36,5 +36,13 @@ module.exports = {
   'edit': 'Edit',
   'race': 'Race',
   'color': 'Color',
-  'status': 'Status'
+  'status': 'Status',
+  'age': 'Age',
+  'ethnicity': 'Ethnicity',
+  'male': 'Male',
+  'female': 'Female',
+  'borndate': 'Borndate',
+  'weight': 'Weight',
+  'ok': 'Ok',
+  'death': 'Death'
 }

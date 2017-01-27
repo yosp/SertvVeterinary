@@ -33,6 +33,15 @@ module.exports = {
   'edit': 'Editar',
   'race': 'Raza',
   'color': 'Color',
-  'status': 'Estatus'
+  'status': 'Estatus',
+  'age': 'Edad',
+  'ethnicity': 'Etnia',
+  'male': 'Macho',
+  'female': 'Hembra',
+  'borndate': 'Fecha de Nacimiento',
+  'weight': 'Peso',
+  'ok': 'Ok',
+  'death': 'Fallecido'
+
 
 }
